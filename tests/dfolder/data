@@ -1,0 +1,3 @@
+HELLO WORLD2
+
+docker run --name some-nginx -p 80:80 -v /dfolder:/usr/share/nginx/html:ro nginx
