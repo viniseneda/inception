@@ -5,20 +5,30 @@ services:
     image: custom-nginx
     build: ./nginx
     volumes:
-      - ./nginx/www:/usr/share/nginx/www
+      - wordpress:/usr/share/nginx/www
     networks:
       - local
     ports:
-      - "8081:80"
+      - "2000:80"
     restart: unless-stopped
   php:
     image: custom-php
     build: ./php
     volumes:
-      - ./nginx/www:/usr/share/nginx/www
+      - wordpress:/usr/share/nginx/www
+    networks:
+      - local
+    restart: unless-stopped
+  sql:
+    image: custom-mariadb
+    build: ./sql
+    # volumes:
+    #   - wordpress:/usr/share/nginx/www
     networks:
       - local
     restart: unless-stopped
 networks:
   local:
+volumes:
+  wordpress:
 
