@@ -89,6 +89,9 @@ https://www.learnbestcoding.com/post/17/ssl-https-with-nginx
 https://docs.docker.com/compose/environment-variables/set-environment-variables/
 https://thenewstack.io/what-is-the-docker-env-file-and-how-do-you-use-it/
 
+### pid 1
+https://www.padok.fr/en/blog/docker-processes-container
+
 ## 28 de maio
 Não consige escrever o arquivo wp_config.hpp
 
@@ -105,5 +108,13 @@ falta agora:
 	ver a coisa do host-name
 	verificar como o pessoal resolveu o problema da permanencia do banco de dados
 	testtar se os dados estao permanecendo
+	colocar versão certa do alpine
 
 
+https://lalex-ku.notion.site/lalex-ku/Inception-d74c98cb5fcb4aaf91c19dac01a7310e (guia do aluno da 42)
+
+
+gerente 1234
+usuario 1234
+
+/home/user42/inception2/tests/final_vers/srcs/requirements/mariadb/conf/dump.sql

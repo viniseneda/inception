@@ -14,6 +14,8 @@ RUN chmod 777 /run/mysqld
 
 COPY conf/mariadb-server.cnf /etc/my.cnf.d/mariadb-server.cnf
 
+COPY conf/dump.sql /etc/my.cnf.d/dump.sql
+
 COPY conf/entrypoint.sh /etc/my.cnf.d/
 RUN chmod 777 /etc/my.cnf.d/entrypoint.sh
 
@@ -23,5 +25,5 @@ RUN chmod 777 /etc/my.cnf.d/entrypoint.sh
 
 # USER mysql
 
-ENTRYPOINT ./etc/my.cnf.d/entrypoint.sh && mysqld --user=mysql
+ENTRYPOINT ./etc/my.cnf.d/entrypoint.sh && exec mysqld --user=mysql
 # CMD ["mysqld", "--user=mysql"]

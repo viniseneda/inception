@@ -26,7 +26,7 @@ ENTRYPOINT sed -i -e "s/dbname/$DB_NAME/"\
     -e "s/dbpassword/$MYSQL_PASSWORD/"\
     -e "s/dbhost/$DB_HOST/"\
     /usr/share/nginx/www/wp-config.php &&\
-    nginx -g 'daemon off;'
+    exec nginx -g 'daemon off;'
 
 # CMD ["nginx", "-g", "daemon off;"]
 # RUN nginx -c /etc/nginx/nginx.conf
