@@ -10,9 +10,9 @@ sudo docker run -p 80:80 -v $(pwd)/www:/usr/share/nginx/www --rm -i --tty test:4
 
 docker run -p 3306:3306 -v --rm -i --tty test
 
-Delete all volumes using the following command: docker volume rm $(docker volume ls -q)
+Delete all volumes using the following command: sudo docker volume rm $(sudo docker volume ls -q)
 
-docker system prune -a
+sudo docker system prune -a && sudo docker volume rm $(sudo docker volume ls -q)
 
 
 GRANT ALL ON wordpress_db.* TO 'vvarussa'@'localhost' IDENTIFIED BY '1234' WITH GRANT OPTION;
@@ -79,6 +79,16 @@ https://mariadb.com/kb/en/creating-a-custom-docker-image/
 https://www.linuxshelltips.com/install-mariadb-alpine-linux/
 https://www.librebyte.net/en/data-base/how-to-install-mariadb-on-alpine-linux/
 
+### HTTPS
+https://techexpert.tips/nginx/enable-https-nginx/
+(explica como usar o openssl)
+
+https://www.learnbestcoding.com/post/17/ssl-https-with-nginx
+
+### envs
+https://docs.docker.com/compose/environment-variables/set-environment-variables/
+https://thenewstack.io/what-is-the-docker-env-file-and-how-do-you-use-it/
+
 ## 28 de maio
 Não consige escrever o arquivo wp_config.hpp
 
@@ -88,3 +98,12 @@ ideias de solução:
 https://stackoverflow.com/questions/20203379/linux-wordpress-cant-not-write-wp-config-file
 
 Entender mais também sobre linux, permissões e grupos.
+
+11/06
+falta agora:
+	testar na vm
+	ver a coisa do host-name
+	verificar como o pessoal resolveu o problema da permanencia do banco de dados
+	testtar se os dados estao permanecendo
+
+

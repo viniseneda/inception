@@ -1,0 +1,44 @@
+version: '3.5'
+
+services:
+  nginx:
+    image: custom-nginx
+    build: ./requirements/nginx
+    environment:
+      - MYSQL_USER=${MYSQL_USER}
+      - MYSQL_PASSWORD=${MYSQL_PASSWORD}
+      - DB_NAME=${DB_NAME}
+      - DB_HOST=${DB_HOST}
+    volumes:
+      - wordpress:/usr/share/nginx/www
+    networks:
+      - local
+    ports:
+      - "443:443"
+    restart: unless-stopped
+  php:
+    image: custom-php
+    build: ./requirements/wordpress
+    volumes:
+      - wordpress:/usr/share/nginx/www
+    networks:
+      - local
+    restart: unless-stopped
+  sql:
+    image: custom-mariadb
+    build: ./requirements/mariadb
+    environment:
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+      - MYSQL_USER=${MYSQL_USER}
+      - MYSQL_PASSWORD=${MYSQL_PASSWORD}
+    volumes:
+      - database:/var/lib/mysql
+    networks:
+      - local
+    restart: unless-stopped
+networks:
+  local:
+volumes:
+  wordpress:
+  database:
+
